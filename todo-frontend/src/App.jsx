@@ -1,10 +1,16 @@
 import './App.css'
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import TaskList from './pages/TaskList';
 
 function App() {
   
 
   return (
-    <h1>hello</h1>
+    <Router>
+      <Routes>
+        <Route path = '/' element ={<TaskList/>}/>
+      </Routes>
+    </Router>
   )
 }
 
