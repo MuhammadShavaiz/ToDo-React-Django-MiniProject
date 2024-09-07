@@ -9,6 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path = '/' element ={<TaskList/>}/>
+        <Route path = '/' element = {<TaskDisplay/>}/>
       </Routes>
     </Router>
   )
