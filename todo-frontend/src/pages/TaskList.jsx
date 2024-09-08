@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import TaskDisplay from '../components/TaskDisplay'
 
 const TaskList = () => {
     const [tasks, setTasks] = useState([])
@@ -13,10 +14,8 @@ const TaskList = () => {
   return (
     <>
       <div>
-        {tasks.map((task, index) => (
-          <div key={index}>
-            {index}: {task.title}
-          </div>
+        {tasks.map((task,index) => (
+          TaskDisplay(task, index)
         ))}
       </div> 
 </>    

@@ -1,10 +1,13 @@
 import React from 'react'
 
-const TaskDisplay = ({Task}) => {
+const TaskDisplay = (Task,index) => {
   return (
-    <div>
-      
-    </div>
+    <ul key={index}>
+      <li>{Task.id}</li>
+      <li>{Task.title}</li>
+      <li>{Task.completed}</li>
+      <li>{Task.created}</li>
+    </ul>
   )
 }
 
