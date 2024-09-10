@@ -11,3 +11,12 @@ def index(request):
     task = Task.objects.all()
     serializer = TaskSerializer(task, many = True)
     return Response(serializer.data)
+@api_view(['PUT'])
+def updateTask(request, pk):
+    task = Task.objects.get(id=pk)
+    data = request.data
+    serializer = TaskSerializer(task, data=data, partial=True) 
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+

@@ -13,11 +13,12 @@ const TaskList = () => {
     },[])
   return (
     <>
-      <div>
-        {tasks.map((task,index) => (
-          TaskDisplay(task, index)
+            <div>
+        {tasks.map((task, index) => (
+          <TaskDisplay key={index} Task={task} />
         ))}
-      </div> 
+      </div>
+ 
 </>    
   )
 }
