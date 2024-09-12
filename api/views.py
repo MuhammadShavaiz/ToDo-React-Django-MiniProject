@@ -27,3 +27,9 @@ def deleteTask(request, pk):
     task = get_object_or_404(Task, id=pk)
     task.delete()
     return Response({'detail': 'Task deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+@api_view(['POST'])
+def createTask(request):
+    serializer = TaskSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()  # Save the new task
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
