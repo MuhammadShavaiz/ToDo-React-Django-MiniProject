@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './TaskDisplay.css';
 
 const TaskDisplay = ({ Task, removeTask }) => {
   const [status, setStatus] = useState(Task.completed);
@@ -25,18 +26,18 @@ const TaskDisplay = ({ Task, removeTask }) => {
         'Content-Type': 'application/json',
       },
     });
-    removeTask(Task.id)
+    removeTask(Task.id);
   };
 
   return (
-    <div>
-      {Task.title}
+    <div className='task-tile'>
       <input
         type="checkbox"
         checked={status}
         onChange={taskStatus}
       />
-      <button onClick={deleteTask}>Delete</button>
+      <p className={`task-text ${status ? 'completed' : ''}`}>{Task.title}</p>
+      <button className='delete-button' onClick={deleteTask}>Delete</button>
     </div>
   );
 };

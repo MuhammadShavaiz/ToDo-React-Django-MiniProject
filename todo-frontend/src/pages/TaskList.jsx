@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import TaskDisplay from '../components/TaskDisplay'
+import './TaskList.css' 
 
 const TaskList = () => {
     const [tasks, getTasks] = useState([])
@@ -33,12 +34,15 @@ const TaskList = () => {
     };
   return (
     <>
-       <div>
+      <div className='task-page'>
+      <h1 className='title'>To-Do App</h1>
+        <div className='task-display'>
+       <div className='task-List'>
         {tasks.map((task, index) => (
           <TaskDisplay key={index} Task={task} removeTask={updateUI} />
         ))}
       </div>
-      <div>
+      <div className='task-form'>
           <input
             type="text"
             value={newTask}
@@ -46,6 +50,8 @@ const TaskList = () => {
             placeholder="Enter new task"
           />
           <button onClick={addTask}>Add Task</button>
+        </div>
+        </div>
         </div>
 </>    
   )
